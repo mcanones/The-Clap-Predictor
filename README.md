@@ -1,7 +1,7 @@
 # The-Clap-Predictor
 
 <p align="center">
-<img src="./reports/figures/head_readme.png" width="650" height="350"/>
+<img src="./docs/head_readme.png" width="650" height="350"/>
 </p>
 
 ## Scope 
@@ -33,10 +33,3 @@ These are the features that most influence the model when training:
 
 - **Class 0**: Regular articles 
 - **Class 1**: Top articles 
-
-<p align="center">
-<img src="./reports/figures/highlights2.png" width="400" height="260"/>
-</p>
-
-
-
