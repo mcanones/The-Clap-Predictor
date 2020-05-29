@@ -23,8 +23,10 @@ class Article(Base):
     Bullet_Lists =  Column(Integer)
     Bolded = Column(Integer)
     Italics = Column(Integer)
+    People = Column(Integer)
     
-    def __init__(self, Author, Claps, Reading_time, Title, Text, Labels, Time, Publication, Link, Date_Scrapping, Images, Links, Code_Chunks, Numbered_Lists, Bullet_Lists, Bolded, Italics):
+    def __init__(self, Author, Claps, Reading_time, Title, Text, Labels, Time, Publication, Link,\
+                 Date_Scrapping, Images, Links, Code_Chunks, Numbered_Lists, Bullet_Lists, Bolded, Italics, People):
         self.Author = Author
         self.Claps = Claps
         self.Reading_Time = Reading_time
@@ -42,4 +44,6 @@ class Article(Base):
         self.Bullet_Lists = Bullet_Lists
         self.Bolded = Bolded
         self.Italics = Italics
+        self.People = People
+
 

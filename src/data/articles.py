@@ -8,7 +8,6 @@ def articles():
 
     engine = create_engine('sqlite:///' + '../../data/raw/project.db')    
     Session = sessionmaker(bind=engine)
-    Base.metadata.create_all(engine)  
     session = Session()
 
     articles = session.query(Article).all()
