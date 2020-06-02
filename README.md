@@ -27,9 +27,7 @@ Final project of the Data Analytics Bootcamp in Ironhack (March 2020). The proje
 - **Model ML**: Sklearn, LightGBM
 - **Advanced NLP Analysis of Text Features**: Fasttext
 
-## Some highlights
-
-These are the features that most influence the model when training: 
+## Classification
 
 - **Class 0**: Regular articles 
 - **Class 1**: Top articles 
