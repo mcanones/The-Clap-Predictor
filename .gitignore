@@ -235,4 +235,6 @@ dmypy.json
 /reports
 /models
 /.idea
-chromedriver
+src/data/geckodriver.log
+src/data/drivers/geckodriver
+
