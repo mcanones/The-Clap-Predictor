@@ -1,9 +1,5 @@
-import sqlite3
-import pandas as pd
 import textstat
-from src.features.cleaning import *
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
-from datetime import datetime
 from .cleaning import notLabels
 import sys
 sys.path.append("..") 
@@ -44,7 +40,8 @@ def featuresFromLabelsCol(df):
     df['Total_Labels'] = df['Labels'].apply(lambda labels: len(str(labels).split(",")))
 
     #################### SELECT MOST REPRESENTATIVE LABELS #################### 
-    ########################################################################### 
+    ###########################################################################
+
     #Expand labels as columns for each article 
     df_labels = df.Labels.str.split(",",expand=True)
     #We take 1st and 2nd label 
@@ -60,6 +57,7 @@ def featuresFromLabelsCol(df):
     #Create columns for each label
     for label in final_set_labels:
         df['Label_'+label]=df['Labels'].str.contains(label, regex=True).astype(int)
+
     ########################################################################### 
     ########################################################################### 
 

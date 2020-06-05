@@ -1,12 +1,12 @@
 import pandas as pd
-from datetime import datetime
+import numpy as np
 from nltk.stem import WordNetLemmatizer
 import nltk
+import re
 stemmer = WordNetLemmatizer()
+en_stop = set(nltk.corpus.stopwords.words('english'))
 #nltk.download('wordnet')
 #nltk.download('stopwords')
-en_stop = set(nltk.corpus.stopwords.words('english'))
-import re
 
 def cleaning(df):
 
@@ -16,31 +16,28 @@ def cleaning(df):
     df.drop(columns=['id','Author', 'Link'], inplace=True)
     print('Dropping unnecesary columns...', df.shape)
 
+    # 0 Claps -> 0 People
+    df['People'] = np.where(df['Claps'] == 0, 0, df['People'])
+
     #Drop Null Values
     df.dropna(inplace=True)
     print('Dropping null values...', df.shape)
-
-    """
-    #Only English Articles
-    df['English'] = df['Title'].apply(lambda title: is_English(title))
-    df = df[df['English']==True]
-    df.drop(columns='English', inplace=True)
-    print('Dropping non-English articles...', df.shape)
-    """
 
     #Casting Data Types
     df.Claps = df.Claps.astype('int64') 
     df.Reading_Time = df.Reading_Time.astype('int64') 
     df.Images = df.Images.astype('int64') 
-    df.Links = df.Links.astype('int64') 
-    df.Code_Chunks = df.Code_Chunks.astype('int64') 
+    df.Links = df.Links.astype('int64')
+    df.Code_Chunks = df.Code_Chunks.astype('int64')
     df.Numbered_Lists = df.Numbered_Lists.astype('int64') 
     df.Bullet_Lists = df.Bullet_Lists.astype('int64') 
     df.Bolded = df.Bolded.astype('int64') 
-    df.Italics = df.Italics.astype('int64') 
+    df.Italics = df.Italics.astype('int64')
+    df.People = df.People.astype('int64')
     df.Time = pd.to_datetime(df.Time)
     df.Date_Scrapping = pd.to_datetime(df.Date_Scrapping)
-    
+    df.Publication = df.Publication.astype('category')
+
     return df
 
 def is_English(text):

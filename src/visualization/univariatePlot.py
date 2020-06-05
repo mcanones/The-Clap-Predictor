@@ -9,7 +9,7 @@ def plot_univariate(data_concat, X, y, figsize=(12, 8)):
     ax_X.set_ylabel(y_left_label)
     ax_X.set_xlabel(X)
     #normal plot y mean
-    ax_y = data_concat[y,'mean'].plot(legend=True, secondary_y=True, title=f'Univariate plot for feature: {X}', label=y_right_label, marker='o', color='#c40222', xlim=ax_X.get_xlim(), rot=90 if len(data_concat.index) > 10 else 0)
+    ax_y = data_concat[y,'mean'].plot(legend=True, secondary_y=True, title=f'Univariate plot for feature: {X}', label=y_right_label, marker='o', color='#c40222', xlim=ax_X.get_xlim(), rot=90 if len(data_concat.index) >6 else 0)
     ax_y.set_ylabel(y_right_label)
     plt.savefig(f'../reports/figures/Univariate{X} .png', bbox_inches = 'tight')
     plt.show()
