@@ -1,4 +1,7 @@
 """
+
+#------- WEB SCRAPING PUBLICATIONS WITH LONG ARCHIVES (MANY ARTICLES IN A MONTH)
+
 pages={
         'Better Programming':'https://medium.com/better-programming/archive',
         'Towards Data Science':'https://towardsdatascience.com/archive',
@@ -8,12 +11,14 @@ pages={
         'HeartBeat':'https://heartbeat.fritz.ai/archive',
         }
        
-#years=['2017','2018','2019','2020']
-years=['2018']
+years=['2018','2019','2020']
 months=[str(i).zfill(2) for i in range(1,13)]
 days=[str(i).zfill(2) for i in range(1,32)]
 suffix=['/'+year+'/'+month+'/'+day for year in years for month in months for day in days]
+
 """
+
+#------- WEB SCRAPING PUBLICATIONS WITH SHORT ARCHIVES (FEW ARTICLES IN A YEAR)
 
 pages={
         'Learn Data Science':'https://blog.exploratory.io/archive',
@@ -37,6 +42,6 @@ pages={
         'The Civis Journal':'https://medium.com/civis-analytics/archive/'
     }
 
-years=['2017']
+years=['2018','2019','2020']
 suffix=['/'+year for year in years]
 

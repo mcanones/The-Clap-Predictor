@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 sys.path.append("..")
 from src.demo.modelParams import labels, publications
-from src.data.scrappingFunctions import get_article
+from src.data.webRequests import get_article
 from src.features.features import featuresFromTitleCol
 
 def prepareFeats(pars):
